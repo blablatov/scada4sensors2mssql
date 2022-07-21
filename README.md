@@ -7,8 +7,8 @@
 ***Схема обмена данными (scheme exchange of data):***
 
 > sensors2mssql <--->    
->><---> :three::black_small_square::one:methods of interface (or goroutine)/mssqldsn <--->
-<---> :three::black_small_square::two:methods of goroutine/smssqlinsert(MSSQL)
+<---> :two::black_small_square::one:methods of interface (or goroutine)/mssqldsn   
+<---> :two::black_small_square::two:methods of goroutine/smssqlinsert(MSSQL)
  			
 
 Для проверки, запустить модуль `main4sensors`, из строки браузера создать запрос:
