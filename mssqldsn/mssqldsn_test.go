@@ -2,7 +2,10 @@ package mssqldsn
 
 import (
 	"fmt"
+	"log"
 	"testing"
+
+	mssql "github.com/denisenkom/go-mssqldb"
 )
 
 func Test(t *testing.T) {
@@ -67,5 +70,17 @@ func Test(t *testing.T) {
 			fmt.Printf("\n%d\n", test.Port)
 			prevPort = test.Port
 		}
+	}
+
+	connString := fmt.Sprintf("server=%s; user id=%s; password=%s; port=%d; database=%s", prevServer, prevUser, prevPassword, prevPort, prevDatabase)
+	if prevDebug {
+		fmt.Printf("MSSQL connString:%s\n", connString)
+
+		// Creating a new connector object. Создание объекта подключения.
+		connector, err := mssql.NewConnector(connString)
+		if err != nil {
+			log.Println(err)
+		}
+		log.Println(connector)
 	}
 }

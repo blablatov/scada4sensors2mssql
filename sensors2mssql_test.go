@@ -3,7 +3,10 @@ package sensors2mssql
 import (
 	"fmt"
 	"sensors2mssql"
+	"sync"
 	"testing"
+
+	"github.com/blablatov/scada4sensors2mssql/smssqlinsert"
 
 	"github.com/blablatov/scada4sensors2mssql/mssqldsn"
 )
@@ -61,7 +64,7 @@ func Test(t *testing.T) {
 
 func BenchmarkInterfaceDsn(b *testing.B) {
 	b.ReportAllocs()
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 3; i++ {
 		dd := mssqldsn.DataDsn{
 			Debug:    true,
 			User:     "user",
@@ -79,11 +82,20 @@ func BenchmarkInterfaceDsn(b *testing.B) {
 
 func BenchmarkGoroutineSqlInserTrs(b *testing.B) {
 	b.ReportAllocs()
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 3; i++ {
+		// Structure DSN. Структура DSN.
+		dd := mssqldsn.DataDsn{
+			Debug:    true,
+			User:     "user",
+			Password: "password",
+			Port:     1433,
+			Server:   "dbserver",
+			Database: "sensordb",
+		}
 		var d mssqldsn.ConDsner = dd
 		db := d.SqlConDsn()
 		rq := sensors2mssql.ReqOperators{
-			InsertReqSql: "INSERT " + ds.dBaseName + " VALUES (SensorType, " + md.SensorType + ")",
+			InsertReqSql: "INSERT " + dBaseName + " VALUES (SensorType, " + SensorType + ")",
 		}
 		cs := make(chan string) // Send result to the main programm. Передача результата в main-программу.
 		var wg sync.WaitGroup
