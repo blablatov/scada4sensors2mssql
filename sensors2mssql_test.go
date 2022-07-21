@@ -2,18 +2,17 @@ package sensors2mssql
 
 import (
 	"fmt"
-	"sensors2mssql"
 	"sync"
 	"testing"
 
-	"github.com/blablatov/scada4sensors2mssql/smssqlinsert"
-
 	"github.com/blablatov/scada4sensors2mssql/mssqldsn"
+	"github.com/blablatov/scada4sensors2mssql/smssqlinsert"
 )
 
 const (
-	dBaseName  = "mssqlserver"
-	SensorType = "dallas"
+	dBaseName    = "mssqlserver"
+	SensorType   = "dallas"
+	InsertReqSql = "INSERT " + dBaseName + " VALUES (SensorType, " + SensorType + ")"
 )
 
 func Test(t *testing.T) {
@@ -94,12 +93,9 @@ func BenchmarkGoroutineSqlInserTrs(b *testing.B) {
 		}
 		var d mssqldsn.ConDsner = dd
 		db := d.SqlConDsn()
-		rq := sensors2mssql.ReqOperators{
-			InsertReqSql: "INSERT " + dBaseName + " VALUES (SensorType, " + SensorType + ")",
-		}
 		cs := make(chan string) // Send result to the main programm. Передача результата в main-программу.
 		var wg sync.WaitGroup
-		go smssqlinsert.SqlInserTrs(rq.InsertReqSql, db, cs, wg)
+		go smssqlinsert.SqlInserTrs(InsertReqSql, db, cs, wg)
 		// Getting data from goroutine. Получение данных из канала горутины.
 		fmt.Println("\nResponse of goroutine: ", <-cs)
 		go func() {
