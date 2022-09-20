@@ -1,6 +1,10 @@
 github.com/Azure/azure-sdk-for-go/sdk/azcore v0.19.0/go.mod h1:h6H6c8enJmmocHUbLiiGY6sx7f9i+X3m1CHdd5c6Rdw=
 github.com/Azure/azure-sdk-for-go/sdk/azidentity v0.11.0/go.mod h1:HcM1YX14R7CJcghJGOYCgdezslRSVzqwLf/q+4Y2r/0=
 github.com/Azure/azure-sdk-for-go/sdk/internal v0.7.0/go.mod h1:yqy467j36fJxcRV2TzfVZ1pCb5vxm4BtZPUdYWe/Xo8=
+github.com/blablatov/scada4sensors2mssql/mssqldsn v0.0.0-20220920112358-6f8e831869c7 h1:yLlbdDUqh5VbkE1rYlkZ2snFIOkdE/aDEL2vprQhoJQ=
+github.com/blablatov/scada4sensors2mssql/mssqldsn v0.0.0-20220920112358-6f8e831869c7/go.mod h1:L0hpslgCu+54c9jUq6DzGddxbCPnPydj7WIY8z1VJro=
+github.com/blablatov/scada4sensors2mssql/smssqlinsert v0.0.0-20220920112358-6f8e831869c7 h1:J5duf15ItcFeDqSchoDlB6hwafm6WPF8lpF+Mid3d8A=
+github.com/blablatov/scada4sensors2mssql/smssqlinsert v0.0.0-20220920112358-6f8e831869c7/go.mod h1:yGCOAu5lkDEMYOiWkuL2PJtwCnvc8bVZJlM5lA1DWHo=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/denisenkom/go-mssqldb v0.12.2 h1:1OcPn5GBIobjWNd+8yjfHNIaFX14B1pWI3F9HZy5KXw=
