@@ -1,3 +1,4 @@
+[![Go](https://github.com/blablatov/scada4sensors2mssql/actions/workflows/scada-sensors2mssql-action.yml/badge.svg)](https://github.com/blablatov/scada4sensors2mssql/actions/workflows/scada-sensors2mssql-action.yml)
 ## scada
 ### RU
 
